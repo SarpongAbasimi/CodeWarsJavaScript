@@ -1,0 +1,13 @@
+//In this exercise, a string is passed to a method and a new string 
+//has to be returned with the first character of each word in the string
+
+function makeString(s){
+   let myFunc= s.split(' ').reduce(
+        function(acc,cur){
+            acc.push(cur[0])
+        return acc
+        },[]);
+    return myFunc.join('')
+}
+  
+console.log(makeString('This Is A Test'))
