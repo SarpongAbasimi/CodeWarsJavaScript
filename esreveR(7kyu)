@@ -1,0 +1,16 @@
+/*
+Write a function reverse which reverses a list (or in clojure's case, any list-like data structure
+*/
+
+
+reverse = function(array) {
+  let newArray=[]
+  for(let i=(array.length-1) ; i >= 0 ;i--){
+    newArray.push(array[i])
+  }
+  return newArray;
+}
+
+//Test 
+Test.assertSimilar( reverse([1,2,3]), [3,2,1] )
+Test.assertSimilar( reverse([1,null,14,"two"]), ["two",14,null,1] )
