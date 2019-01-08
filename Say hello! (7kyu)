@@ -18,5 +18,3 @@ function greet(name) {
         return null;
     }
 }
-
-console.log(greet(""))
