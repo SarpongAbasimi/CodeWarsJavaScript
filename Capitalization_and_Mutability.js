@@ -20,6 +20,11 @@ function capitalizeWord(word) {
 }
 
 
+//order simple solutions 
+const capitalizeWord = (word)=>{word.replace(word.charAt(0),word[0].toUpperCase())}
+const capitalizeWord = (word) =>  word.replace(word.charAt(0),word[0].toUpperCase())
+
+
 //test 
 Test.assertSimilar(capitalizeWord('word'), 'Word');
 Test.assertSimilar(capitalizeWord('i'), 'I');
