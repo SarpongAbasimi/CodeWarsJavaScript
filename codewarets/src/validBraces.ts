@@ -54,26 +54,21 @@ export function validBraces(braces: string): boolean {
     // ['(','[', '{', '}', ']',')']
     // "(){}[]" 
 
-    let splittedInputValue = braces.split('')
-    const splittedInputValueLength = splittedInputValue.length
-    let finalResult: boolean[] = []
-
-    for(let counter: number = 0; counter < splittedInputValueLength; counter++){
-
-        let currentIndexValuePair = bracesAndPairs[`${splittedInputValue[counter]}`].pair
-
-        let nextValue = counter % 2 == 0 ? splittedInputValue[counter + 1] : splittedInputValue[counter - 1]
-   
-        console.log(`${splittedInputValue[counter]} pair is ${currentIndexValuePair} index is ${counter} and nextInArray is ${nextValue}`)
-    
-        if(currentIndexValuePair == splittedInputValue[splittedInputValueLength - (counter + 1)] || currentIndexValuePair == nextValue) {
-            finalResult.push(true)
-        } else {
-            finalResult.push(false)
+    return !braces.split(' ').flatMap((value, _)=> {
+        let result = []
+        let splittedValue = value.split('')
+        for(let i = 0; i < splittedValue.length; i++){
+            let currentIndexValuePair = bracesAndPairs[`${splittedValue[i]}`].pair
+            let nextValue = i % 2 == 0 ? splittedValue[i + 1] : splittedValue[i - 1]
+            if(currentIndexValuePair == splittedValue[splittedValue.length - (i + 1)] || currentIndexValuePair == nextValue) {
+                result.push(true)
+            } else {
+                result.push(false)
+            }
         }
-    }
-    return !finalResult.includes(false)
+        return result
+    }).includes(false)
 }
 
-console.log(validBraces("(){}[]"))
-// console.log(validBraces("(){}[] ([{}])"))
+// console.log(validBraces("(){}[]]"))
+console.log(validBraces("(){}[] ([{}])"))
