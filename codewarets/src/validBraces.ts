@@ -22,12 +22,10 @@
 // "[(])"     =>  False
 // "[({})](]" =>  False
 
+// Kata - https://www.codewars.com/kata/5277c8a221e209d3f6000b56/train/typescript
+
 
 export function validBraces(braces: string): boolean {
-    //Option ONe
-    // Put the string in an array
-    // check if the if the current index if equals the last index
-    // "([{}])"
     let myBraceTracker: {
         [key: string]: {
             pair: string
@@ -61,13 +59,9 @@ export function validBraces(braces: string): boolean {
     let finalResult: boolean[] = []
 
     for(let counter: number = 0; counter < splittedBracesLength; counter++){
-
         let elementPair = myBraceTracker[`${splittedBraces[counter]}`].pair
-
-    
         let nextInArray = counter % 2 == 0 ? splittedBraces[counter + 1] : splittedBraces[counter - 1]
    
-
         console.log(`${splittedBraces[counter]} pair is ${elementPair} index is ${counter} and nextInArray is ${nextInArray}`)
     
         if(elementPair == splittedBraces[splittedBracesLength - (counter + 1)] || elementPair == nextInArray) {
@@ -78,7 +72,5 @@ export function validBraces(braces: string): boolean {
     }
     return !finalResult.includes(false)
 }
-
-// ({})[({})]
 
 console.log(validBraces("(){}[]"))
