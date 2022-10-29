@@ -26,7 +26,7 @@
 
 
 export function validBraces(braces: string): boolean {
-    let myBraceTracker: {
+    let bracesAndPairs: {
         [key: string]: {
             pair: string
         }
@@ -54,17 +54,19 @@ export function validBraces(braces: string): boolean {
     // ['(','[', '{', '}', ']',')']
     // "(){}[]" 
 
-    let splittedBraces = braces.replace(' ', '').split('')
-    const splittedBracesLength = splittedBraces.length
+    let splittedInputValue = braces.split('')
+    const splittedInputValueLength = splittedInputValue.length
     let finalResult: boolean[] = []
 
-    for(let counter: number = 0; counter < splittedBracesLength; counter++){
-        let elementPair = myBraceTracker[`${splittedBraces[counter]}`].pair
-        let nextInArray = counter % 2 == 0 ? splittedBraces[counter + 1] : splittedBraces[counter - 1]
+    for(let counter: number = 0; counter < splittedInputValueLength; counter++){
+
+        let currentIndexValuePair = bracesAndPairs[`${splittedInputValue[counter]}`].pair
+
+        let nextValue = counter % 2 == 0 ? splittedInputValue[counter + 1] : splittedInputValue[counter - 1]
    
-        console.log(`${splittedBraces[counter]} pair is ${elementPair} index is ${counter} and nextInArray is ${nextInArray}`)
+        console.log(`${splittedInputValue[counter]} pair is ${currentIndexValuePair} index is ${counter} and nextInArray is ${nextValue}`)
     
-        if(elementPair == splittedBraces[splittedBracesLength - (counter + 1)] || elementPair == nextInArray) {
+        if(currentIndexValuePair == splittedInputValue[splittedInputValueLength - (counter + 1)] || currentIndexValuePair == nextValue) {
             finalResult.push(true)
         } else {
             finalResult.push(false)
@@ -74,3 +76,4 @@ export function validBraces(braces: string): boolean {
 }
 
 console.log(validBraces("(){}[]"))
+// console.log(validBraces("(){}[] ([{}])"))
