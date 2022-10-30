@@ -50,9 +50,30 @@ export function validBraces(braces: string): boolean {
             pair: '('
         }
     }
+    // Implementation one // fails find out why
+    // return !braces.split(' ').flatMap((value, _)=> {
+    //     let result = []
+    //     let splittedValue = value.split('')
+    //     for(let i = 0; i < splittedValue.length; i++){
 
-    // ['(','[', '{', '}', ']',')']
-    // "(){}[]" 
+    //         let currentIndexValuePair = bracesAndPairs[`${splittedValue[i]}`].pair
+    //         let currentIndexPairFirstIndex = splittedValue.indexOf(currentIndexValuePair)
+    //         let currentIndexPairLastIndex = splittedValue.lastIndexOf(currentIndexValuePair)
+
+    //         let indexToUse = (i % 2 == 0) && (currentIndexPairFirstIndex % 2 == 0) ? currentIndexPairLastIndex : currentIndexPairFirstIndex
+            
+    //         console.log(`${splittedValue[i]} pair is ${currentIndexValuePair} and index ${indexToUse}`)
+ 
+    //         if((i % 2 == 0) && (indexToUse % 2 <= 0) ) {
+    //             return false
+    //         } else {
+    //             result.push(true)
+    //             splittedValue = splittedValue.slice(i + 1)
+    //             splittedValue.splice(indexToUse-1, 1)
+    //         }
+    //     }
+    //     return result
+    // }).includes(false)
 
     return !braces.split(' ').flatMap((value, _)=> {
         let result = []
@@ -70,5 +91,7 @@ export function validBraces(braces: string): boolean {
     }).includes(false)
 }
 
-// console.log(validBraces("(){}[]]"))
-console.log(validBraces("(){}[] ([{}])"))
+// console.log(validBraces("(({{[[]]}}))"))
+// console.log(validBraces(")(}{]["))
+// console.log(validBraces("[(])"))
+// console.log(validBraces("(){}[] ([{}])"))
