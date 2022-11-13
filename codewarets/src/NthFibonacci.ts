@@ -9,21 +9,12 @@
 // Kata - https://www.codewars.com/kata/522551eee9abb932420004a0/train/javascript
 
 let cache: {[key: number]: number} = {
-    0 : 0,
-    1: 1,
-    2: 1
+    0:0,
+    1:1,
+    2:1
 }
 
 function nthFibo(n: number): number {
-
-    if(n == 0){
-        return 0
-    }
-
-    if(n == 1 || n == 2) {
-        return 1
-    }
-
     if(cache.hasOwnProperty(n)){
         return cache[n]
     } else {
