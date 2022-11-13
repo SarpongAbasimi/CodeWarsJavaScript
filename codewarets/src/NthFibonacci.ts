@@ -8,24 +8,16 @@
 // To do
 // Kata - https://www.codewars.com/kata/522551eee9abb932420004a0/train/javascript
 
-let cache: {[key: number]: number} = {
-    0:0,
-    1:1,
-    2:1
-}
-
+let cache: {[key: number]: number} = {}
 
 function nthFibo(n: number): number {
 
     if(n == 0) {
         return 1
     }
+
     if(n == 1 || n == 2) {
-        for(let element in cache){
-            if(parseInt(element) + 1 == n){
-                return cache[element]
-            }
-        }
+        return Object.values(cache).indexOf(n--)
     }
 
     if(cache.hasOwnProperty(n)){
