@@ -14,7 +14,20 @@ let cache: {[key: number]: number} = {
     2:1
 }
 
+
 function nthFibo(n: number): number {
+
+    if(n == 0) {
+        return 1
+    }
+    if(n == 1 || n == 2) {
+        for(let element in cache){
+            if(parseInt(element) + 1 == n){
+                return cache[element]
+            }
+        }
+    }
+
     if(cache.hasOwnProperty(n)){
         return cache[n]
     } else {
