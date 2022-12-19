@@ -1,3 +1,5 @@
+// Clean this up to not use splice
+
 type InputArray = number[];
 
 const sumElementsInArray = (input: InputArray): number => {
