@@ -1,8 +1,8 @@
-import algos.BinarySearch
+import algos. CountItemsInList
 object Main {
   def main(args: Array[String]): Unit = {
-    val arrayElements = Array.range(1,1000)
-    val search = BinarySearch(500, arrayElements).search
-    println(search)
+    val data = Array.range(0,10).view.toList
+    val result = CountItemsInList.calculate(data)
+    println(result)
   }
 }
