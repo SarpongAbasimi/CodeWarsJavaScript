@@ -1,5 +1,3 @@
-// Clean this up to not use splice
-
 type InputArray = number[];
 
 const sumElementsInArray = (input: InputArray): number => {
@@ -7,8 +5,8 @@ const sumElementsInArray = (input: InputArray): number => {
     if (processedArray.length == 0) {
       return accumulation;
     } else {
-      let nn = processedArray.splice(0, 1);
-      return add(processedArray, accumulation + nn[0]);
+      let head = processedArray.splice(0, 1);
+      return add(processedArray, accumulation + head[0]);
     }
   };
   return add(input, 0);
