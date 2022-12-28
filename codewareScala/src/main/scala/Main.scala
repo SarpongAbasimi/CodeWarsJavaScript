@@ -1,8 +1,8 @@
-import algos. CountItemsInList
+import algos.{ Cal}
 object Main {
   def main(args: Array[String]): Unit = {
-    val data = Array.range(0,10).view.toList
-    val result = CountItemsInList.calculate(data)
+    val result = Cal.isPalindrome(-121)
+
     println(result)
   }
 }
