@@ -23,7 +23,7 @@ object Cal {
   }
 
 
-  def isPalindrome(x: Int): Boolean = {
+  def isPalindrome[T](x: T ): Boolean = {
     val splitInput = x.toString.split("")
     val lowerBound = 0
     val upperBound = splitInput.length - 1
