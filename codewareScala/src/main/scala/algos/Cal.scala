@@ -46,8 +46,7 @@ object Cal {
     }
     check(splitInput, lowerBound, upperBound)
   }
-
-  // Wrong for odd number of string
+  
   def isValid(s: String)= {
     val data = s.split("").toList
     val counter = 0
